@@ -28,6 +28,8 @@ Route::any('/demo',function(){
 //calling routeswith data
 
 Route::get('/getdata/{name}/{id?}',function($name,$id=null){
-    echo $name;
-    echo $id;
+    // echo $name;
+    // echo $id;
+    $data = compact('name','id');//comapact is like array in php
+    return view ('demo')->with($data);
 });
