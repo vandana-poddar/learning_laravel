@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\demo;
+use App\Http\Controllers\marvel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/course', function () {
-    return view('courses');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+// Route::get('/about', function () {
+//     return view('about');
+// });
+// Route::get('/course', function () {
+//     return view('courses');
+// });
+
+Route::get('/',[demo::class, 'index']);
+Route::resource('/tony',marvel::class);
 
 
 
