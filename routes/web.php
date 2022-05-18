@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/demo',function(){
+    echo "hello in this demo world";
+});
+
+Route::any('/demo',function(){
+    echo "hello in this demo world";
+});//we can call this url with post as well
+
+//calling routeswith data
+
+Route::get('/getdata/{name}/{id?}',function($name,$id=null){
+    echo $name;
+    echo $id;
+});
