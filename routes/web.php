@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\demo;
 use App\Http\Controllers\marvel;
+use App\Http\Controllers\registrationcontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,8 @@ use App\Http\Controllers\marvel;
 //     return view('courses');
 // });
 
-Route::get('/',[demo::class, 'index']);
-Route::resource('/tony',marvel::class);
+// Route::get('/',[demo::class, 'index']);
+// Route::resource('/tony',marvel::class);
 
 
 
@@ -45,3 +46,6 @@ Route::resource('/tony',marvel::class);
 //     $data = compact('name','id');//comapact is like array in php
 //     return view ('demo')->with($data);
 // });
+
+Route::get('/register',[registrationcontroller::class,'index']);
+Route::post('/register',[registrationcontroller::class,'register']);
