@@ -11,44 +11,13 @@
   </head>
   <body>
       <form action ="{{url('/')}}/register" method ="post">
-          @csrf
         <div class =  "container" >
             <h1 class ="text- center">registration</h1>
-            <div class="form-group">
-          <label for="">name</label>
-          <input type="text" class="form-control" name="name" id="" aria-describedby="HelpId" placeholder=""/>
-          
-          <span>
-            @error('name')
-               {{$message}}
-            @enderror
-          </span><!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
-        </div>
-        <div class =  "container" >
-       
-        <div class="form-group">
-          <label for="">email</label>
-          <input type="email" class="form-control" name="email" id="" aria-describedby="HelpId" placeholder=""/>
-          <span>
-            @error('email')
-               {{$message}}
-            @enderror
-          </span>
-          <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
-        </div>
-        <div class =  "container" >
-        <!-- <h1 class ="text- center">registration</h1> -->
-        <div class="form-group">
-          <label for="">password</label>
-          <input type="password" class="form-control" name="password" id="" aria-describedby="HelpId" placeholder=""/>
-         
-          <span>
-            @error('password')
-               {{$message}}
-            @enderror
-          </span> <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
-        </div>
-        <button class="btn btn-primary">submit</button>
+            <x-input type= "text" name = "name" label= "name"/>
+            <x-input type= "email" name = "email" label= "email"/>
+            <x-input type= "password" name = "password" label= "password" />
+            <button class="btn btn-primary">submit</button>
+</div>
 </form>
     </body>
 </html>
