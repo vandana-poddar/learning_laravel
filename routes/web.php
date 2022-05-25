@@ -17,9 +17,9 @@ use App\Models\About;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 // Route::get('/about', function () {
 //     return view('about');
 // });
@@ -51,12 +51,20 @@ use App\Models\About;
 
 // Route::get('/register',[registrationcontroller::class,'index']);
 // Route::post('/register',[registrationcontroller::class,'register']);
-Route::get('/customer',[customer::class,'index']);
-Route::post('/customer',[customer::class,'store']);
-Route::get('/customer/view',[customer::class,'view']);
-Route::delete('/customer/delete/{$id}',[customer::class,'destroy']);
+Route::get('/customer',[customer::class,'index'])->middleware('gaurd');
 Route::get('/about',function(){
     $abouts = About::all();
     echo "<pre>";
-    print_r($abouts->toArray());
-});
+    print_r($abouts->toArray());})->middleware('gaurd');
+Route::get('/login',function(){
+    session()->put('user_id',1);
+    return redirect ('/');});
+Route::get('/logout',function(){
+    session()->forget('user_id');
+    return redirect ('/');});
+Route::get('/no_access',function(){
+    echo" u r not allowed to access the page";
+    die;});
+Route::post('/customer',[customer::class,'store']);
+Route::get('/customer/view',[customer::class,'view']);
+Route::delete('/customer/delete/{$id}',[customer::class,'destroy']);
