@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\demo;
 use App\Http\Controllers\marvel;
 use App\Http\Controllers\registrationcontroller;
+use App\Http\Controllers\customer;
+use App\Models\About;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +49,14 @@ use App\Http\Controllers\registrationcontroller;
 //     return view ('demo')->with($data);
 // });
 
-Route::get('/register',[registrationcontroller::class,'index']);
-Route::post('/register',[registrationcontroller::class,'register']);
+// Route::get('/register',[registrationcontroller::class,'index']);
+// Route::post('/register',[registrationcontroller::class,'register']);
+Route::get('/customer',[customer::class,'index']);
+Route::post('/customer',[customer::class,'store']);
+Route::get('/customer/view',[customer::class,'view']);
+Route::delete('/customer/delete/{$id}',[customer::class,'destroy']);
+Route::get('/about',function(){
+    $abouts = About::all();
+    echo "<pre>";
+    print_r($abouts->toArray());
+});

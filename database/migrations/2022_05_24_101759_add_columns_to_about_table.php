@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('about', function (Blueprint $table) {
-            $table->text('address');
-            $table->string('city',50)->nullable();
+            $table->string('password')->after('email');
+            $table->String('country');
             $table->string('state',10);
-            $table->integer('pincode');
+            $table->text('address');
+     
         });
     }
 
